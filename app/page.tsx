@@ -65,6 +65,23 @@ const LightIcon = () => (
   </svg>
 );
 
+const AppLogo = () => (
+  <svg className="w-full h-full" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <rect width="512" height="512" rx="128" fill="url(#app-grad)"/>
+    <path d="M120 280H392" stroke="white" strokeWidth="36" strokeLinecap="round" strokeLinejoin="round"/>
+    <path d="M360 280V304C360 361.438 313.438 408 256 408C198.562 408 152 361.438 152 304V280" stroke="white" strokeWidth="36" strokeLinecap="round" strokeLinejoin="round"/>
+    <path d="M256 160V224" stroke="white" strokeWidth="36" strokeLinecap="round" strokeLinejoin="round"/>
+    <path d="M176 176V224" stroke="white" strokeWidth="36" strokeLinecap="round" strokeLinejoin="round"/>
+    <path d="M336 176V224" stroke="white" strokeWidth="36" strokeLinecap="round" strokeLinejoin="round"/>
+    <defs>
+      <linearGradient id="app-grad" x1="0" y1="0" x2="512" y2="512" gradientUnits="userSpaceOnUse">
+        <stop stopColor="#F97316"/>
+        <stop offset="1" stopColor="#FBBF24"/>
+      </linearGradient>
+    </defs>
+  </svg>
+);
+
 // Large Category Art Components
 const KapraoArt = () => (
   <svg className="w-full h-48 md:h-64 drop-shadow-lg" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -577,25 +594,15 @@ export default function FoodQuiz() {
         {!quizStarted ? (
           /* หน้าแรก (Landing Page) */
           <div className="bg-white rounded-3xl shadow-xl p-10 md:p-16 text-center border border-orange-200">
-            {/* Icons Display */}
-            <div className="flex justify-center gap-3 sm:gap-5 mb-10">
-              <div className="w-16 h-16 sm:w-20 sm:h-20 bg-red-50 rounded-3xl flex items-center justify-center -rotate-6 shadow-sm border border-red-100">
-                <SpicyIcon />
+            {/* App Logo & Title */}
+            <div className="flex flex-col items-center justify-center mb-8">
+              <div className="w-32 h-32 md:w-40 md:h-40 mb-6 drop-shadow-2xl hover:-translate-y-2 transition-transform duration-300 ease-out">
+                <AppLogo />
               </div>
-              <div className="w-16 h-16 sm:w-20 sm:h-20 bg-orange-50 rounded-3xl flex items-center justify-center rotate-3 shadow-sm border border-orange-100 translate-y-2">
-                <ComfortIcon />
-              </div>
-              <div className="w-16 h-16 sm:w-20 sm:h-20 bg-amber-50 rounded-3xl flex items-center justify-center -rotate-3 shadow-sm border border-amber-100 translate-y-2">
-                <HeavyIcon />
-              </div>
-              <div className="w-16 h-16 sm:w-20 sm:h-20 bg-green-50 rounded-3xl flex items-center justify-center rotate-6 shadow-sm border border-green-100">
-                <LightIcon />
-              </div>
+              <h1 className="text-6xl md:text-7xl font-black text-transparent bg-clip-text bg-gradient-to-br from-orange-500 to-amber-500 tracking-tight pb-2">
+                กินไรดี?
+              </h1>
             </div>
-
-            <h1 className="text-6xl md:text-7xl font-black text-gray-900 mb-6 tracking-tight">
-              กินไรดี?
-            </h1>
             
             <p className="text-lg md:text-xl text-gray-600 mb-10 max-w-md mx-auto leading-relaxed">
               คิดไม่ออกใช่ไหมว่ามื้อนี้จะกินอะไรดี? ตอบคำถามง่ายๆ ไม่กี่ข้อ แล้วเราจะเลือกเมนูที่ใช่ที่สุดให้กับคุณเอง!
@@ -663,9 +670,14 @@ export default function FoodQuiz() {
 
               {/* Watermark for shared image */}
               <div className="mt-8 pt-6 border-t border-gray-100 flex flex-col items-center justify-center">
-                <p className="text-sm font-bold text-orange-400 tracking-wide mb-1">
-                  ✨ วันนี้กินไรดี? ✨
-                </p>
+                <div className="flex items-center gap-2 mb-1">
+                  <div className="w-6 h-6">
+                    <AppLogo />
+                  </div>
+                  <p className="text-sm font-bold text-orange-500 tracking-wide">
+                    กินไรดี?
+                  </p>
+                </div>
                 <p className="text-xs text-gray-400 font-medium">
                   kinraidee.vercel.app
                 </p>
